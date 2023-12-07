@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>用户登录</title>
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+<body>
+<!-- contact-form -->
+<div class="message warning">
+    <div class="inset">
+        <div class="login-head">
+            <h1>用户登录</h1>
+            <div class="alert-close"></div>
+        </div>
+        <form action="/login" method="post">
+            <li>
+                <input type="text" id="username" name="username" placeholder="请输入用户名" required>
+            </li>
+            <div class="clear"></div>
+            <li>
+                <input type="password" id="password" name="password"placeholder="请输入密码" required>
+            </li>
+            <div class="clear"></div>
+            <div class="submit">
+                <input type="submit" value="登录">
+                <h4><a href="#" id="forgotPassword">忘记密码 ?</a></h4>
+                <div class="clear"></div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="clear"></div>
+<!--- footer --->
+<div class="footer">
+    <p>Copyright &copy; 2023.</p>
+</div>
+<script>
+    document.getElementById('forgotPassword').addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent the default link behavior
+
+        // Display a simple message
+        alert('忘记拉到！');
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Other head content -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/prism.css') }}">
+
+</head>
+<body>
+
+<header>
+    <div id="loginRegister">
+        {% if logged_in %}
+            <span>欢迎, {{ session['username'] }}！</span>
+            <a href="/logout">退出</a>
+        {% else %}
+            {#            <a href="/register">注册</a>#}
+            <a href="/login">登录</a>
+        {% endif %}
+    </div>
+    <h1>你可以摆烂，但绝不能真的没实力</h1>
+</header>
+
+<nav class="{% if 'logged_in' not in session %}hidden{% endif %}">
+    <h2>工具栏</h2>
+    <ul id="menu">
+        <li><a href="#" onclick="showContent('python')">Python</a></li>
+        <li><a href="#" onclick="showContent('http')">常用网址</a></li>
+        <li><a href="#" onclick="showContent('html')">HTML</a></li>
+    </ul>
+</nav>
+
+<section id="content" class="{% if 'logged_in' not in session %}hidden{% endif %}">
+    <!--    <h2>主要内容区域</h2>-->
+    <div id="pythonContent" style="display: none;">
+        <button onclick="showCategory('normal')">普通工具</button>
+        <button onclick="showCategory('dataframe')">DataFrame函数</button>
+        <button onclick="showCategory('visualization')">plt可视化函数</button>
+        <button onclick="showCategory('echarts')">Echarts可视化函数</button>
+
+        <div id="normalCategory" style="display: none;">
+            <!-- 普通工具的内容 -->
+            <select id="functionNormal" onchange="updateCode('Normal')">
+                <option value="function1">写入csv（无乱码）</option>
+                <option value="function2">待更新</option>
+                <option value="function3">待更新</option>
+                <!-- Add more options as needed -->
+            </select>
+        </div>
+        <div id="dataframeCategory" style="display: none;">
+            <!-- 可视化函数的内容 -->
+            <select id="functionDataframe" onchange="updateCode('Dataframe')">
+                <option value="df1">三维DateFrame</option>
+                <option value="df2">省份df处理</option>
+                <option value="df2">待更新</option>
+                <!-- Add more options as needed -->
+            </select>
+        </div>
+        <div id="visualizationCategory" style="display: none;">
+            <!-- 可视化函数的内容 -->
+            <select id="functionVisualization" onchange="updateCode('Visualization')">
+                <option value="plt1">显示中文</option>
+                <option value="plt2">待更新</option>
+                <option value="plt3">待更新</option>
+                <!-- Add more options as needed -->
+            </select>
+        </div>
+        <div id="echartsCategory" style="display: none;">
+            <!-- Echarts函数的内容 -->
+            <select id="functionEcharts" onchange="updateCode('Echarts')">
+                <option value="Echarts1">中国地图</option>
+                <option value="Echarts2">叠加柱状图</option>
+                <!-- Add more options as needed -->
+            </select>
+        </div>
+        <label for="pythonCode">代码：</label>
+        {#        <textarea id="pythonCode" rows="20"></textarea>#}
+        <pre><code id="pythonCode" class="language-javascript"></code></pre>
+        <button onclick="copyToClipboard('pythonCode')">复制</button>
+        <span id="pythonCopyMessage"></span>
+    </div>
+
+    <!-- 修改对应的内容区域 id 为 httpContent -->
+    <div id="httpContent" style="display: none;">
+        <h1>-Python</h1>
+        <div id="pythonContainer" class="grid-container">
+            {#        <h4>Python</h4>#}
+            {% for link in python_links %}
+                <div class="link-item">
+                    <a href="{{ link.link }}" target="_blank">{{ link.name }}</a>
+                </div>
+            {% endfor %}
+        </div>
+        <h1>-AI</h1>
+        <div id="aiContainer" class="grid-container">
+            {% for link in ai_links %}
+                <div class="link-item">
+                    <a href="{{ link.link }}" target="_blank">{{ link.name }}</a>
+                </div>
+            {% endfor %}
+        </div>
+        <h1>-Special</h1>
+        <div id="specialContainer" class="grid-container">
+            {% for link in special_links %}
+                <div class="link-item">
+                    <a href="{{ link.link }}" target="_blank">{{ link.name }}</a>
+                </div>
+            {% endfor %}
+        </div>
+        <h1>-Data</h1>
+        <div id="dataContainer" class="grid-container">
+            {% for link in data_links %}
+                <div class="link-item">
+                    <a href="{{ link.link }}" target="_blank">{{ link.name }}</a>
+                </div>
+            {% endfor %}
+        </div>
+        <div id="htmlContent" style="display: none;">
+            <label for="htmlFunction">选择函数：</label>
+            <select id="htmlFunction" onchange="updateCode('html')">
+                <option value="functionX">Function X</option>
+                <option value="functionY">Function Y</option>
+                <!-- Add more options as needed -->
+            </select>
+            <label for="htmlCode">代码：</label>
+            <textarea id="htmlCode" rows="6" readonly></textarea>
+            <button onclick="copyToClipboard('htmlCode')">复制</button>
+            <span id="htmlCopyMessage"></span>
+        </div>
+    </div>
+</section>
+<script src="{{ url_for('static', filename='js/prism.js') }}" defer></script>
+<script src="{{ url_for('static', filename='js/pythonTool.js') }}" defer></script>
+</body>
+</html>

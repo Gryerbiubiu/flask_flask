@@ -1,0 +1,42 @@
+{
+  "categories": [
+    {
+      "name": "Python",
+      "items": [
+        {"name": "Python帮助文档", "link": "https://www.cnpython.com"},
+        {"name": "pyecharts", "link": "https://pyecharts.org/#/zh-cn/datasets"},
+        {"name": "代码自动生成", "link": "https://curlconverter.com"},
+        {"name": "Anaconda镜像", "link": "https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/"}
+      ]
+    },
+    {
+      "name": "AI",
+      "items": [
+        {"name": "ChatGPT", "link": "https://chat.openai.com/auth/login"},
+        {"name": "文心一言", "link": "https://yiyan.baidu.com/"},
+        {"name": "千帆大模型", "link": "https://console.bce.baidu.com/"},
+        {"name": "豆包", "link": "https://www.doubao.com/"}
+      ]
+    },
+    {
+      "name": "Special",
+      "items": [
+        {"name": "VPN代理", "link": "https://www.xmkyun.com/user"},
+        {"name": "易撰", "link": "https://www.yizhuan5.com/"},
+        {"name": "IDEA激活码", "link": "https://www.ajihuo.com/"},
+        {"name": "虚拟号码", "link": "https://sms-activate.org/cn/"},
+        {"name": "鲸鱼", "link": "https://www.heywhale.com/home/"},
+        {"name": "CSDN社区", "link": "https://blog.csdn.net/"}
+      ]
+    },
+    {
+      "name": "Data",
+      "items": [
+        {"name": "Yahoo Finance", "link": "https://finance.yahoo.com/"},
+        {"name": "Kaggle", "link": "https://www.kaggle.com/datasets"},
+        {"name": "DataCastle", "link": "https://www.dcjingsai.com/"},
+        {"name": "天池", "link": "https://tianchi.aliyun.com/"}
+      ]
+    }
+  ]
+}

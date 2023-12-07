@@ -1,0 +1,5 @@
+一Python一,
+Python帮助文档,https://www.cnpython.com
+pyecharts, https://pyecharts.org/#/zh-cn/datasets
+代码自动生成, https://curlconverter.com
+Anaconda镜像,https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/
